@@ -16,9 +16,18 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="nav-link active" aria-current="page" href="index.php">Inicio</a>
-        <a class="nav-link" href="index.php?action=nosotros">Nosotros</a>
+        <a class="nav-link" href="index.php?action=nosotros">Nosotros <i class="fa-solid fa-people-arrows fa-2xs"></i> </a>
         <a class="nav-link" href="index.php?action=contacto">contacto</a>
 
+      <?php
+        if(!empty($_SESSION['id'])){// Cuando alguien tienen sesion activa
+       ?>
+          <a class="nav-link" href="index.php?action=inscripcion">Inscribir <i class="fa-solid fa-pencil fa-beat fa-xs"></i> </a>
+          <a class="nav-link" href="index.php?action=verinscripcion">Ver Inscripciones</a>
+          <a class="nav-link" href="index.php?action=logout">Cerrar sesion</a>
+      <?php }else{// No ha iniciado sesion ?>
+          <a class="nav-link" href="index.php?action=login">Iniciar Sesion</a>
+      <?php } ?>  
       </div>
     </div>
   </div>
