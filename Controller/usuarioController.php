@@ -1,32 +1,31 @@
 <?php
 
 namespace Controller;
-use Model\usuarioModel;
+use Model\UsuarioModel;
 
-class usuarioController{
+class UsuarioController{
+
     public function login(){
-        if(!empty($_POST['usuario'])  && !empty($_POST['password'])){
-            // la compraracion para ver su los datos coinciden
-            $datos = array (
+        if(!empty($_POST['usuario']) && !empty($_POST['password'])){
+            //La comparación para ver si los datos coinciden
+            $datos = array(
                 'usuario' => $_POST['usuario'],
-                'password' => $_POST['password'],
-
+                'password' => $_POST['password']
             );
-            $respuesta = usuarioModel::login($datos);
+            $respuesta = UsuarioModel::login($datos);
 
-            if(isset($respuesta['id'])){//si hubo coincidencia
+            if(isset($respuesta['id'])){//Hubo coincidencia
                 $_SESSION['usuario'] = $respuesta['usuario'];
                 $_SESSION['nombre'] = $respuesta['nombre'];
                 $_SESSION['apellido'] = $respuesta['apellido'];
                 $_SESSION['id'] = $respuesta['id'];
+                $_SESSION['rol'] = $respuesta['rol'];
 
                 header("location: index.php?action=inicio&id={$respuesta['id']}");
             }else{
-                //mensaje de error
+                //mensaje error
                 return "error";
-
             }
-
         }
     }
 
@@ -34,7 +33,6 @@ class usuarioController{
         session_destroy();
         header("location: index.php?action=inicio");
     }
-
 
 }
 

@@ -1,13 +1,12 @@
 <?php
 
     use Controller\InscripcionController;
-    use Controller\CategoriaController;// categoria 
-    use Controller\cursoController;
+    use Controller\CursoController;
 
-    $curso = new cursoController();
-    $categoria = new CategoriaController();// categoria controller
+    $curso = new CursoController();
     $inscripcion = new InscripcionController();
-    if(!empty($_SESSION['id'])){// Validacion obligatoria inicio de sesion
+
+    if(!empty($_SESSION['id'])){//VALIDACIÓN, OBLIGATORIO INICIO DE SESION
 ?>
 
 <h1>Página de inscripción</h1>
@@ -17,26 +16,16 @@
     <form method="POST">
 
     <div class="alert alert-light" role="alert">
-        <h1> <?php echo $_SESSION['nombre']." ".$_SESSION['apellido']; ?></h1>
+         <h1> <?php echo $_SESSION['nombre']." ".$_SESSION['apellido']; ?> </h1>
     </div>
-        
-<!--
-        <div class="form-group">
-            <div class="row mb-3">
-                <div class="col-2"><label>Nombre</label></div>
-                <div class="col-10"><input class="form-control" type="text" name="nombre" required></div>
-            </div>
-        </div>
-    -->
 
         <div class="form-group">
             <div class="row">
                 <div class="col-2"><label>Curso</label></div>
                 <div class="col-10">
                 <select name="idcurso">
-                        <!--Como ralizar una seleccion de categoria como el select -->
-                        <?php 
-                            foreach($curso->mostrar() as $row => $item){                              
+                        <?php
+                            foreach($curso->mostrar() as $row => $item){
                                 echo "<option value='{$item['id']}'>{$item['curso']}</option>";
                             }
                         ?>
@@ -45,17 +34,6 @@
             </div>
         </div>
 
-     <!--   
-        <div class="form-group mt-4">
-            <div class="row">
-                <div class="col-2"><label>Categoria del Curso</label></div>
-                <div class="col-10">
-                   
-                </div>
-     
-            </div>
-        </div>
-      -->
 
         <div class="form-group">
             <div class="row mt-3">
@@ -67,9 +45,10 @@
 
 
         <?php
-           $resultado = $inscripcion->inscribir();
+    
+        $resultado = $inscripcion->inscribir();
 
-        
+
             if($resultado == "guardado"){
                 echo "<div class='alert alert-success mt-5' role='alert'>
                         Alumno inscrito
@@ -79,7 +58,7 @@
                         Error
                      </div>";
             }
-         }// CIERRE DE VALIDACION, INICIO DE SESION    
+        }//CIERRE DE VALIDACION, INICIO SESION OBLIGADO
         ?>
 
 </div>

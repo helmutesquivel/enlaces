@@ -11,6 +11,7 @@ class CategoriaModel{
         $stmt->execute();
         return $stmt->fetchAll();
     }
+
 }
 
 ?>

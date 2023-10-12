@@ -1,6 +1,5 @@
 <?php
-
-session_start(); // unica Ejecucion porque index carga a los demas archivos
+session_start();//Única ejecución, porque index carga a los demás archivos.
 
 date_default_timezone_set('America/Guatemala');
 
@@ -11,6 +10,5 @@ $pagina = new PaginaController;
 
 $pagina->mostrarInicio();
 
-$_SESSION
 
 ?>

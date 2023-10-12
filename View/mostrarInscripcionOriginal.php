@@ -1,16 +1,10 @@
 <?php
-    use Controller\inscripcionController;
-    
-    if(!empty($_SESSION['id'])) {
-        $inscripciones = new inscripcionController;
-        
-        if ($_SESSION['rol'] == 'a') {
-            // Si el usuario tiene el rol 'a' (administrador), puede ver todas las inscripciones
-            $listado = $inscripciones->mostrar();
-        } else {
-            // Si el usuario no es administrador, solo mostrar sus inscripciones
-            $listado = $inscripciones->mostrarPorUsuario($_SESSION['id']);
-        }
+    use Controller\InscripcionController;
+
+    if(!empty($_SESSION['id']) && ($_SESSION['rol']) ){//VALIDACIÓN, OBLIGATORIO INICIO DE SESION
+
+        $inscripciones = new InscripcionController;
+        $listado = $inscripciones->mostrar();
 
         foreach($listado as $row => $item){
             echo "
@@ -23,5 +17,8 @@
                 </div>
             ";
         }
-}
+    }
+
+
+
 ?>

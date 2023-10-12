@@ -17,7 +17,7 @@ class PaginaController{
             $enlace = "inicio";
         }
         $respuesta = EnlacesModel::enlacesPagina($enlace);//El modelo devuelve la ruta de la pág
-        
+
         require_once($respuesta);
     }
 

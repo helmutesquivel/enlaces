@@ -11,12 +11,12 @@
 
 <form method="post">
 
-<?php echo $registro['nombre']; ?>
+<?php echo $_SESSION['nombre']." ".$_SESSION['apellido']; ?>
 <br>
 <?php echo $registro['curso']; ?>
-<p>¿Seguro que quiere borrar?</p>
+<p>¿Seguro que quiere desinscribirse?</p>
 
-<input type="hidden" name="idInscripcion" value="<?php echo $registro['id'];?>">
+<input type="hidden" name="idInscripcion" value="<?php echo $registro['idinscripcion'];?>">
 
 <button type="submit" class="btn btn-primary">Borrar</button>
 </form>

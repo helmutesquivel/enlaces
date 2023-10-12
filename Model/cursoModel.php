@@ -4,13 +4,14 @@ namespace Model;
 
 use Model\ConexionModel;
 
-class cursoModel{
+class CursoModel{
 
     public static function mostrarCurso(){
         $stmt = ConexionModel::conectar()->prepare("SELECT * FROM curso");
         $stmt->execute();
         return $stmt->fetchAll();
     }
+
 }
 
 ?>

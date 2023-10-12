@@ -1,15 +1,15 @@
 <?php
 
 namespace Controller;
-use Model\cursoModel;
+use Model\CursoModel;
 
-class cursoController{
+class CursoController{
 
-       public function mostrar(){
-        $curso = cursoModel::mostrarCurso();
-        //AQUI SE HARIAN LOS CÁLCULOS (TOTALES, IVA, %)
+    public function mostrar(){
+        $curso = CursoModel::mostrarCurso();
         return $curso;//se van a la vista
     }
+
 }
 
 ?>

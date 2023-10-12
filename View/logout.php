@@ -1,12 +1,9 @@
 <?php
 
+use Controller\UsuarioController;
 
-use Controller\usuarioController;
-
-$usuario = new usuarioController();
+$usuario = new UsuarioController();
 
 $usuario->logout();
-
-
 
 ?>
